@@ -30,7 +30,7 @@ async function setup() {
     console.log(path.join(pathToCLI, download.binPath));
     const pa = path.join(pathToCLI, download.binPath)
     core.addPath(path.join(pathToCLI, download.binPath));
-    const { stdout, stderr } = await exec(`cd ${pa} && ls -l`);
+    const { stdout, stderr } = await exec(`ls -l`);
     console.log('stdout:', stdout);
     console.log('stderr:', stderr);
   } catch (e) {
