@@ -25,6 +25,7 @@ async function setup() {
     const pathToCLI = await extract(pathToTarball);
 
     // Expose the tool by adding it to the PATH
+    console.log(path.join(pathToCLI, download.binPath));
     core.addPath(path.join(pathToCLI, download.binPath));
   } catch (e) {
     core.setFailed(e);
