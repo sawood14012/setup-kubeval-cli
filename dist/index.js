@@ -28,9 +28,8 @@ async function setup() {
 
     // Expose the tool by adding it to the PATH
     console.log(path.join(pathToCLI, download.binPath));
-    const pa = path.join(pathToCLI, download.binPath)
     core.addPath(path.join(pathToCLI, download.binPath));
-    const { stdout, stderr } = await exec(`ls -l`);
+    const { stdout, stderr } = await exec(`echo $PATH`);
     console.log('stdout:', stdout);
     console.log('stderr:', stderr);
   } catch (e) {
