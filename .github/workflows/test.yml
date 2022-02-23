@@ -1,0 +1,25 @@
+name: Tests
+
+on:
+  push:
+    branches:
+    - main
+  pull_request:
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Setup Kubeval
+      uses: ./
+      with:
+        version: 'latest'
+    - name: Capture kubeval version installed
+      run: kubeval -v
