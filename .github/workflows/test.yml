@@ -18,7 +18,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
     - name: Setup Kubeval
-      uses: ./
+      uses: sawood14012/setup-kubeval-cli@v1
       with:
         version: '0.16.1'
     - name: Capture kubeval version installed

@@ -10,7 +10,7 @@ the version of cli you want to use (default : latest)
 
 ## Example usage
 ```
-uses: actions/hello-world-javascript-action@v1.1
+uses: sawood14012/setup-kubeval-cli@v1
 with:
   version: 'latest'
 ```
