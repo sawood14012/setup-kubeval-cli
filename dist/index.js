@@ -8,6 +8,8 @@ const path = __nccwpck_require__(17);
 const core = __nccwpck_require__(221);
 const tc = __nccwpck_require__(0);
 const { getDownloadObject } = __nccwpck_require__(637);
+const util = __nccwpck_require__(837);
+const exec = util.promisify((__nccwpck_require__(81).exec));
 
 async function setup() {
   try {
@@ -26,7 +28,11 @@ async function setup() {
 
     // Expose the tool by adding it to the PATH
     console.log(path.join(pathToCLI, download.binPath));
+    const pa = path.join(pathToCLI, download.binPath)
     core.addPath(path.join(pathToCLI, download.binPath));
+    const { stdout, stderr } = await exec1(`cd ${pa} && ls -l`);
+    console.log('stdout:', stdout);
+    console.log('stderr:', stderr);
   } catch (e) {
     core.setFailed(e);
   }

@@ -2,6 +2,8 @@ const path = require('path');
 const core = require('@actions/core');
 const tc = require('@actions/tool-cache');
 const { getDownloadObject } = require('./lib/utils');
+const util = require('util');
+const exec = util.promisify(require('child_process').exec);
 
 async function setup() {
   try {
@@ -20,7 +22,11 @@ async function setup() {
 
     // Expose the tool by adding it to the PATH
     console.log(path.join(pathToCLI, download.binPath));
+    const pa = path.join(pathToCLI, download.binPath)
     core.addPath(path.join(pathToCLI, download.binPath));
+    const { stdout, stderr } = await exec1(`cd ${pa} && ls -l`);
+    console.log('stdout:', stdout);
+    console.log('stderr:', stderr);
   } catch (e) {
     core.setFailed(e);
   }
