@@ -10,7 +10,7 @@ This action is used to setup kubeval cli.
 
 ## Example usage
 ```
-uses: sawood14012/setup-kubeval-cli@v1
+uses: sawood14012/setup-kubeval-cli@v1.1
 with:
   version: '0.16.1'
 ```
