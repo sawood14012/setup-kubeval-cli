@@ -5,12 +5,12 @@ This action is used to setup kubeval cli.
 ## Inputs
 
 ## `version`
-the version of cli you want to use (default : latest)
+**Required** the version of cli you want to use (default : 0.16.1)
 
 
 ## Example usage
 ```
 uses: sawood14012/setup-kubeval-cli@v1
 with:
-  version: 'latest'
+  version: '0.16.1'
 ```

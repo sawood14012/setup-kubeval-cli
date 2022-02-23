@@ -3,8 +3,8 @@ description: 'This Action setups kubeval cli'
 inputs:
   version:  # id of input
     description: 'version of the cli'
-    required: false
-    default: 'latest'
+    required: true
+    default: '0.16.1'
 runs:
   using: 'node16'
   main: 'dist/index.js'
